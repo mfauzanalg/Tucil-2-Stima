@@ -45,6 +45,8 @@ vector<int> BF(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 	return pol3;
 }
 
+
+
 int main(){
     int n, i,a ,b;
     int cKali, cTambah;
@@ -75,11 +77,11 @@ int main(){
 		pol2.push_back(b);
 	}
 
-	CetakPol(pol1);
-	CetakPol(pol2);
+	cout << "polinom 1  : "; CetakPol(pol1);
+	cout << "polinom 2  : "; CetakPol(pol2);
 	cout << endl;
 
-	cout << "[ALGORITMA BRUTEFORCE]" << endl;
+	cout << "[ALGORITMA BRUTE FORCE]" << endl;
 	auto startBF = high_resolution_clock::now();
 	pol3 = BF(pol1, pol2, &cKali, &cTambah);
 	auto stopBF = high_resolution_clock::now();
