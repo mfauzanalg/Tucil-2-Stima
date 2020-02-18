@@ -95,7 +95,7 @@ vector<int> BF(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 	if(pol1.size() == 1 and pol2.size() == 1){
 		vector<int> pol3(1);
-		pol3[1] = pol1[1] * pol2[1];
+		pol3[0] = pol1[0] * pol2[0];
 		return pol3;
 	}
 	else{
@@ -114,12 +114,15 @@ vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 			B1[j] = pol2[i];
 			j++;
 		}
-
+		
 		vector<int> Y = DNC(Sum(A0, A1), Sum(B0, B1), &*cKali, &*cTambah);
 		vector<int> U = DNC(A0, B0, &*cKali, &*cTambah);
 		vector<int> Z = DNC(A1, B1, &*cKali, &*cTambah);
-		
-		// return 
+
+		*cTambah += 4;
+		*cKali += 2;
+		return Sum(Sum(Multi(Min(Min(Y, U), Z), n), U), Multi(Z, n*2));
+
 	}
 
 }
@@ -132,12 +135,12 @@ int main(){
     vector<int> pol1;
     vector<int> pol2;
     vector<int> pol3;
-    // vector<int> pol4;
+    vector<int> pol4;
 
     cout << "Masukkan panjang suku polinom : ";
 	cin >> n;
-	while (n < 1){
-		cout << "Minimal n bernilai 1" << endl;
+	while (n < 0){
+		cout << "Minimal n bernilai 0" << endl;
 		cout << "Masukkan panjang suku polinom : ";
 		cin >> n;
 	}
@@ -173,10 +176,18 @@ int main(){
 	cout << endl;
 
 	cout << "[ALGORITMA DIVIDE AND CONQUER]" << endl;
-	// pol3 = DNC(pol1, pol2, &cKali, &cTambah);
-	pol3 = Multi(pol1,3);
-	CetakPol(pol3);
-	cout << pol3.size() << endl;
+	cKali = 0;
+	cTambah = 0;
+	auto startDNC = high_resolution_clock::now();
+	pol4 = DNC(pol1, pol2, &cKali, &cTambah);
+	auto stopDNC = high_resolution_clock::now();
+	auto durationDNC = duration_cast<microseconds>(stopDNC - startDNC).count(); 
+
+	cout << "hasil perklian polinom	: "; CetakPol(pol4);
+	cout << "jumlah operasi kali	: " << cKali << endl;
+	cout << "jumlah operasi tambah	: " << cTambah << endl;
+	cout << "waktu yang dibutuhkan	: " << durationDNC << " microseconds" << endl;
+	cout << endl;
 
 
     return 0;
