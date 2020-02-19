@@ -101,6 +101,7 @@ vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 	else{
 		int i, j = 0;
 		int n = pol1.size()/2;
+		cout << n << endl;
 		vector<int> A0(n);
 		vector<int> B0(n);
 		vector<int> A1(pol1.size()-n);
@@ -122,11 +123,8 @@ vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 		*cTambah += 4;
 		*cKali += 2;
 		return Sum(Sum(Multi(Min(Min(Y, U), Z), n), U), Multi(Z, n*2));
-
 	}
-
 }
-
 
 
 int main(){
@@ -147,12 +145,12 @@ int main(){
 
 	srand(time(0));
 	for (i = 0; i <= n; i++){
-		a = (rand() % 200) - 100;
-		b = (rand() % 200) - 100;
+		a = (rand() % 5) - 3;
+		b = (rand() % 5) - 3;
 		if (i == n){
 			do{
-			a = (rand() % 200) - 100;
-			b = (rand() % 200) - 100;
+			a = (rand() % 5) - 3;
+			b = (rand() % 5) - 3;
 			} while (a == 0 or b == 0);
 		}
 		pol1.push_back(a);
