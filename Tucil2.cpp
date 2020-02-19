@@ -147,8 +147,8 @@ int main(){
 	srand(time(0));
 	for (i = 0; i <= n; i++){
 
-			a = (rand() % 5) - 3;
-			b = (rand() % 5) - 3;
+			a = (rand() % 200) - 100;
+			b = (rand() % 200) - 100;
 
 		pol1.push_back(a);
 		pol2.push_back(b);
