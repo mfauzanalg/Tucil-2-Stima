@@ -93,12 +93,10 @@ vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 	else{
 		int i, j = 0;
 		int n = pol1.size()/2;
-		int m = pol2.size()/2;
-		// cout << n << endl;
 		vector<int> A0(n);
-		vector<int> B0(m);
+		vector<int> B0(n);
 		vector<int> A1(pol1.size()-n);
-		vector<int> B1(pol1.size()-m);
+		vector<int> B1(pol1.size()-n);
 		for(i = 0; i <= n-1; i++){
 			A0[i] = pol1[i];
 			B0[i] = pol2[i];
