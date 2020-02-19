@@ -69,7 +69,7 @@ vector<int> Min (vector<int> pol1, vector<int> pol2){
 
 vector<int> Multi (vector<int> pol1, int n){
 	int i;
-	vector<int> multi(pol1.size()+n, 0);
+	vector<int> multi(pol1.size()+n);
 	for (i = 0; i < pol1.size(); i ++){
 		multi[i+n] = pol1[i];
 	}
@@ -93,7 +93,7 @@ vector<int> BF(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 }
 
 vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
-	if(pol1.size() == 1 and pol2.size() == 1){
+	if(pol1.size() == 1 or pol2.size() == 1){
 		vector<int> pol3(1);
 		pol3[0] = pol1[0] * pol2[0];
 		return pol3;
@@ -101,11 +101,12 @@ vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 	else{
 		int i, j = 0;
 		int n = pol1.size()/2;
-		cout << n << endl;
+		int m = pol2.size()/2;
+		// cout << n << endl;
 		vector<int> A0(n);
-		vector<int> B0(n);
+		vector<int> B0(m);
 		vector<int> A1(pol1.size()-n);
-		vector<int> B1(pol1.size()-n);
+		vector<int> B1(pol1.size()-m);
 		for(i = 0; i <= n-1; i++){
 			A0[i] = pol1[i];
 			B0[i] = pol2[i];
@@ -145,14 +146,10 @@ int main(){
 
 	srand(time(0));
 	for (i = 0; i <= n; i++){
-		a = (rand() % 5) - 3;
-		b = (rand() % 5) - 3;
-		if (i == n){
-			do{
+		do{
 			a = (rand() % 5) - 3;
 			b = (rand() % 5) - 3;
-			} while (a == 0 or b == 0);
-		}
+		} while (a == 0 or b == 0);
 		pol1.push_back(a);
 		pol2.push_back(b);
 	}
