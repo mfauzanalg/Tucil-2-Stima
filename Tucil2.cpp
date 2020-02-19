@@ -91,20 +91,19 @@ vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 		return pol3;
 	}
 	else{
-		int i, j = 0;
+		int i;
 		int n = pol1.size()/2;
-		vector<int> A0(n);
-		vector<int> B0(n);
-		vector<int> A1(pol1.size()-n);
-		vector<int> B1(pol1.size()-n);
+		vector<int> A0;
+		vector<int> B0;
+		vector<int> A1;
+		vector<int> B1;
 		for(i = 0; i <= n-1; i++){
-			A0[i] = pol1[i];
-			B0[i] = pol2[i];
+			A0.push_back(pol1[i]);
+			B0.push_back(pol2[i]);
 		}
 		for(i = n; i < pol1.size(); i++){
-			A1[j] = pol1[i];
-			B1[j] = pol2[i];
-			j++;
+			A1.push_back(pol1[i]);
+			B1.push_back(pol2[i]);
 		}
 		
 		vector<int> Y = DNC(Sum(A0, A1), Sum(B0, B1), &*cKali, &*cTambah);
