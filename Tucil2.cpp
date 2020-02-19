@@ -43,10 +43,6 @@ vector<int> Sum (vector<int> pol1, vector<int> pol2){
 	for (int i = 0; i < pol2.size(); i++){
 		sum[i] += pol2[i];
 	}
-
-	// while (sum[sum.size()-1] == 0){
-	// 	sum.pop_back();
-	// }
 	return sum;
 }
 
@@ -60,10 +56,6 @@ vector<int> Min (vector<int> pol1, vector<int> pol2){
 	for (int i = 0; i < pol2.size(); i++){
 		sum[i] -= pol2[i];
 	}
-
-	// while (sum[sum.size()-1] == 0){
-	// 	sum.pop_back();
-	// }
 	return sum;
 }
 
