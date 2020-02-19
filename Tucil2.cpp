@@ -146,10 +146,10 @@ int main(){
 
 	srand(time(0));
 	for (i = 0; i <= n; i++){
-		do{
+
 			a = (rand() % 5) - 3;
 			b = (rand() % 5) - 3;
-		} while (a == 0 or b == 0);
+
 		pol1.push_back(a);
 		pol2.push_back(b);
 	}
