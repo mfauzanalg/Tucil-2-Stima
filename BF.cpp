@@ -1,0 +1,19 @@
+#include "BF.hpp"
+#include <iostream>
+using namespace std
+
+vector<int> BF(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
+	int i,j;
+	*cKali = 0;
+	*cTambah = 0;
+	vector<int> pol3(pol1.size()+pol2.size());
+
+	for (i = 0; i < pol1.size(); i++){
+		for (j = 0; j< pol2.size(); j++){
+			pol3[i+j] += pol1[i] * pol2[j];
+			*cKali += 1;
+			*cTambah += 1;
+		}
+	}
+	return pol3;
+}

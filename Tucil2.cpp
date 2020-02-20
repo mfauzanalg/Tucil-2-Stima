@@ -84,6 +84,20 @@ vector<int> BF(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 	return pol3;
 }
 
+void Divide (vector<int> pol1, vector<int> pol2, vector<int> *A0, vector<int> *B0, vector<int> *A1, vector<int> *B1, int n){
+	int i;
+
+	for(i = 0; i <= n-1; i++){
+		(*A0).push_back(pol1[i]);
+		(*B0).push_back(pol2[i]);
+	}
+	for(i = n; i < pol1.size(); i++){
+		(*A1).push_back(pol1[i]);
+		(*B1).push_back(pol2[i]);
+	}
+
+}
+
 vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 	if(pol1.size() == 1 or pol2.size() == 1){
 		vector<int> pol3(1);
@@ -93,18 +107,8 @@ vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 	else{
 		int i;
 		int n = pol1.size()/2;
-		vector<int> A0;
-		vector<int> B0;
-		vector<int> A1;
-		vector<int> B1;
-		for(i = 0; i <= n-1; i++){
-			A0.push_back(pol1[i]);
-			B0.push_back(pol2[i]);
-		}
-		for(i = n; i < pol1.size(); i++){
-			A1.push_back(pol1[i]);
-			B1.push_back(pol2[i]);
-		}
+		vector<int> A0, B0, A1, B1;
+		Divide(pol1, pol2, &A0, &B0, &A1, &B1, n);
 		
 		vector<int> Y = DNC(Sum(A0, A1), Sum(B0, B1), &*cKali, &*cTambah);
 		vector<int> U = DNC(A0, B0, &*cKali, &*cTambah);
@@ -135,10 +139,8 @@ int main(){
 
 	srand(time(0));
 	for (i = 0; i <= n; i++){
-
-			a = (rand() % 200) - 100;
-			b = (rand() % 200) - 100;
-
+		a = (rand() % 200) - 100;
+		b = (rand() % 200) - 100;
 		pol1.push_back(a);
 		pol2.push_back(b);
 	}
