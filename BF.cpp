@@ -1,6 +1,7 @@
 #include "BF.hpp"
 #include <iostream>
-using namespace std
+#include <vector>
+using namespace std;
 
 vector<int> BF(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 	int i,j;

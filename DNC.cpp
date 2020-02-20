@@ -1,12 +1,13 @@
 #include "DNC.hpp"
-#include "other.hpp"
 #include <iostream>
-using namespace std
+#include <vector>
+using namespace std;
 
 vector<int> DNC(vector<int> pol1, vector<int> pol2, int *cKali, int *cTambah){
 	if(pol1.size() == 1 or pol2.size() == 1){
 		vector<int> pol3(1);
 		pol3[0] = pol1[0] * pol2[0];
+		// *cKali += 1;
 		return pol3;
 	}
 	else{

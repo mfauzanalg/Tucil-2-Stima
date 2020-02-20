@@ -1,7 +1,16 @@
 #include <iostream>
 #include "DNC.hpp"
 #include "BF.hpp"
+
+#include <iostream>
+#include <vector>
+#include <stdio.h>
+#include <chrono> 
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
+using namespace std::chrono; 
 
 int main(){
     int n, i,a ,b;
