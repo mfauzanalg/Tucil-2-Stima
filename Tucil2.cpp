@@ -154,7 +154,7 @@ int main(){
 	auto stopBF = high_resolution_clock::now();
 	auto durationBF = duration_cast<microseconds>(stopBF - startBF).count(); 
 
-	cout << "hasil perklian polinom	: "; CetakPol(pol3);
+	// cout << "hasil perklian polinom	: "; CetakPol(pol3);
 	cout << "jumlah operasi kali	: " << cKali << endl;
 	cout << "jumlah operasi tambah	: " << cTambah << endl;
 	cout << "waktu yang dibutuhkan	: " << durationBF << " microseconds" << endl;
@@ -168,7 +168,7 @@ int main(){
 	auto stopDNC = high_resolution_clock::now();
 	auto durationDNC = duration_cast<microseconds>(stopDNC - startDNC).count(); 
 
-	cout << "hasil perklian polinom	: "; CetakPol(pol4);
+	// cout << "hasil perklian polinom	: "; CetakPol(pol4);
 	cout << "jumlah operasi kali	: " << cKali << endl;
 	cout << "jumlah operasi tambah	: " << cTambah << endl;
 	cout << "waktu yang dibutuhkan	: " << durationDNC << " microseconds" << endl;
