@@ -17,13 +17,14 @@ karena jika menggunakan windows
 =====================================================================
 
 untuk mengcompile program pada ubuntu dapat menjalankan
-./tucil2 pada terminal di folder src
+chmod +x tucil2.sh lalu ./tucil2 
+pada terminal di folder src
 
 atau pada windows bisa dengan menjalankan
 tucil2.bat
 
 Bisa langsung menjalankan program 
-dengan file yang tersedia di folder bin
+dengan file main yang tersedia di folder bin
 
 =====================================================================
 
