@@ -23,6 +23,9 @@ pada terminal di folder src
 atau pada windows bisa dengan menjalankan
 tucil2.bat
 
+atau manual dengan
+g++ -o main main.cpp other.cpp BF.cpp DNC.cpp 
+
 Bisa langsung menjalankan program 
 dengan file main yang tersedia di folder bin
 
